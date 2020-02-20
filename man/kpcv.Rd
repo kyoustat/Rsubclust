@@ -9,3 +9,46 @@ kpcv(X, K = 2, iter = 496, init = c("kmeans", "random"), print.progress = TRUE)
 \description{
 Projective k-Means Clustering with Varying Dimension
 }
+\examples{
+## generate a toy example of two line components
+set.seed(19)
+tester = simLP(n=100, nl=2, np=0)
+data   = tester$data
+label  = tester$class
+
+## do PCA for data reduction
+proj = base::eigen(stats::cov(data))$vectors[,1:2]
+dat2 = data\%*\%proj
+
+## run k-plane algorithm with K=2, 3, and 4
+kpcv2 = kpcv(data, K=2)
+kpcv3 = kpcv(data, K=3)
+kpcv4 = kpcv(data, K=4)
+
+## extract clustering
+finc2 = kpcv2$cluster
+finc3 = kpcv3$cluster
+finc4 = kpcv4$cluster
+
+## visualize
+opar <- par(mfrow=c(3,4), no.readonly=TRUE)
+plot(dat2[,1],dat2[,2],pch=19,cex=0.3,col=finc2+1,main="K=2:PCA")
+plot(data[,1],data[,2],pch=19,cex=0.3,col=finc2+1,main="K=2:Axis(1,2)")
+plot(data[,1],data[,3],pch=19,cex=0.3,col=finc2+1,main="K=2:Axis(1,3)")
+plot(data[,2],data[,3],pch=19,cex=0.3,col=finc2+1,main="K=2:Axis(2,3)")
+
+plot(dat2[,1],dat2[,2],pch=19,cex=0.3,col=finc3+1,main="K=3:PCA")
+plot(data[,1],data[,2],pch=19,cex=0.3,col=finc3+1,main="K=3:Axis(1,2)")
+plot(data[,1],data[,3],pch=19,cex=0.3,col=finc3+1,main="K=3:Axis(1,3)")
+plot(data[,2],data[,3],pch=19,cex=0.3,col=finc3+1,main="K=3:Axis(2,3)")
+
+plot(dat2[,1],dat2[,2],pch=19,cex=0.3,col=finc4+1,main="K=4:PCA")
+plot(data[,1],data[,2],pch=19,cex=0.3,col=finc4+1,main="K=4:Axis(1,2)")
+plot(data[,1],data[,3],pch=19,cex=0.3,col=finc4+1,main="K=4:Axis(1,3)")
+plot(data[,2],data[,3],pch=19,cex=0.3,col=finc4+1,main="K=4:Axis(2,3)")
+par(opar)
+
+}
+\references{
+\insertRef{agarwal_k-means_2004}{Rsubclust}
+}
