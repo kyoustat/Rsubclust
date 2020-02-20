@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582161389197.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A228C911",
+    "lastKnownWriteTime" : 1582161855,
+    "last_content_update" : 1582161855908,
+    "path" : "~/Desktop/Rsubclust/R/Rsubclust-package.R",
+    "project_path" : "R/Rsubclust-package.R",
+    "properties" : {
+        "cursorPosition" : "12,50",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

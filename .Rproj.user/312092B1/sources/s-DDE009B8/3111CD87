@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582161494150.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3111CD87",
+    "lastKnownWriteTime" : 1582161498,
+    "last_content_update" : 1582161498273,
+    "path" : "~/Desktop/Rsubclust/R/scpredict.R",
+    "project_path" : "R/scpredict.R",
+    "properties" : {
+        "cursorPosition" : "29,21",
+        "scrollLine" : "9",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
