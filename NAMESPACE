@@ -3,6 +3,7 @@
 export(kpcf)
 export(kpcv)
 export(kplane)
+export(rsc.d2subspace)
 export(scpredict)
 export(simLP)
 import(Rdpack)

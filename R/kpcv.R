@@ -63,7 +63,7 @@ kpcv <- function(X, K=2, iter=496, init=c("kmeans","random"), print.progress=TRU
     old.label[[k]] = which(old.clust==k)
   }
   
-  dims = rep(d-1, K)
+  dims = sample(1:(d-1), K, replace = TRUE)
   run.old = kpc.compute.qflat(X, old.label, dims)
   
   #########################################################

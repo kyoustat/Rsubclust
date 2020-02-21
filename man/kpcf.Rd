@@ -9,7 +9,7 @@ kpcf(
   K = 2,
   dims = rep(1, K),
   iter = 496,
-  init = c("random", "kmeans"),
+  init = c("kmeans", "random"),
   print.progress = TRUE
 )
 }

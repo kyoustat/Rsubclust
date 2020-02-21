@@ -10,14 +10,14 @@
   this.version = utils::packageVersion("Rsubclust")
   
   ## Print on Screen
-  packageStartupMessage("** ------------------------------------------------------- **")
+  packageStartupMessage("** -------------------------------------------------------- **")
   packageStartupMessage("**  Subspace Clustering Algorithms with 'Rsubclust' package  ")
   packageStartupMessage("**")
   packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
   packageStartupMessage("** Maintainer : Kisung You (kyoustat@gmail.com)")
   packageStartupMessage("**")
   packageStartupMessage("** Please share any bugs or suggestions to the maintainer.")
-  packageStartupMessage("** ------------------------------------------------------- **")
+  packageStartupMessage("** -------------------------------------------------------- **")
 }
 
 .onUnload <- function(libpath) {

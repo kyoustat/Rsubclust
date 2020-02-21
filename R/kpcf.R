@@ -46,7 +46,7 @@
 #' \insertRef{agarwal_k-means_2004}{Rsubclust}
 #' 
 #' @export
-kpcf<- function(X, K=2, dims=rep(1,K), iter=496, init=c("random","kmeans"), print.progress=TRUE){
+kpcf<- function(X, K=2, dims=rep(1,K), iter=496, init=c("kmeans","random"), print.progress=TRUE){
   #########################################################
   # Initialization : use the notation from the paper
   n = nrow(X)
@@ -130,7 +130,6 @@ kpcf<- function(X, K=2, dims=rep(1,K), iter=496, init=c("random","kmeans"), prin
 
 # auxiliary functions -----------------------------------------------------
 #' @keywords internal
-#' @noRd
 kpc.compute.qflat <- function(X, old.label, dims){
   K = length(dims)
   
@@ -174,12 +173,17 @@ kpc.assign.qflat <- function(X, out.qflat){
   
   output = array(0,c(N,K))
   for (k in 1:K){
-    projU = base::diag(d)-(out.qflat$basis[[k]]%*%t(out.qflat$basis[[k]]))
-    for (n in 1:N){
-      xdiff = as.vector(projU%*%(as.vector(X[n,])-as.vector(out.qflat$center[[k]])))
-      output[n,k] = sum(xdiff^2)
-    }
+    k.basis  = out.qflat$basis[[k]]
+    k.center = out.qflat$center[[k]]
+    output[,k] = rsc.d2subspace(X, k.basis, k.center)
   }
+  # for (k in 1:K){
+  #   projU = base::diag(d)-(out.qflat$basis[[k]]%*%t(out.qflat$basis[[k]]))
+  #   for (n in 1:N){
+  #     xdiff = as.vector(projU%*%(as.vector(X[n,])-as.vector(out.qflat$center[[k]])))
+  #     output[n,k] = sum(xdiff^2)
+  #   }
+  # }
   
   label = rep(0,N)
   for (n in 1:N){
